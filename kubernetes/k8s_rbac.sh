@@ -98,6 +98,8 @@ kubectl apply -f clusterrole/pod-reader-clusterrole.yaml
 
 EOM
 
+kubectl apply -f clusterrole/pod-reader-clusterrole.yaml
+
 printf "\n Look at the Pod-Reader ClusterRoleBinding for $USER_EMAIL"
 
 cat clusterrolebinding/pod-reader-clusterrolebinding.yaml
@@ -114,11 +116,15 @@ kubectl apply -f clusterrolebinding/pod-reader-clusterrolebinding.yaml
 
 EOM
 
-printf "\n Check the permissions of the Pod-Reader"
+kubectl apply -f clusterrolebinding/pod-reader-clusterrolebinding.yaml
+
+printf "\n Checking the permissions of the Pod-Reader"
 
 gcloud iam service-accounts keys create \
    --iam-account $USER_EMAIL pod-reader-key.json
+
 gcloud container clusters get-credentials $CLUSTER_NAME
+
 gcloud auth activate-service-account $USER_EMAIL \
    --key-file=pod-reader-key.json
 
