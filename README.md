@@ -1,4 +1,4 @@
-# Kubernetes with Google Kubernetes Engine, Everest June 2018
+# Google Kubernetes Engine for Everest June 2018
 
 This is an accompanying repository for the GKE Everest Session in June 2018.
 
@@ -9,6 +9,7 @@ This is not an official Google product or tutorial.
 1. GCP Project
 2. gcloud SDK ([Google Cloud Shell](https://cloud.google.com/shell/) is a free x64 Linux env with this isntalled.)
 3. GCP Billing Account
+4. Basic Kubernetes and GCP Knowledge
 
 See [here](https://cloud.google.com/pricing/list) for pricing on relevant technologies (GKE, Storage, Networking).
 
@@ -16,7 +17,13 @@ See [here](https://cloud.google.com/pricing/list) for pricing on relevant techno
 
 [This](/infrastructure/gke.sh) script will use gcloud to create a GKE cluster with several of the GCP and GKE constructs discussed during the session. 
 
-Start by editing [options.sh](/infrastructure/options.sh) and then execute create.sh
+Clone the repo and make the scripts executable.
+
+```
+git clone https://github.com/agmsb/gke-everest-june-2018 && chmod +x create.sh && chmod +x delete.sh
+```
+
+Populate parameters in [options.sh](/infrastructure/options.sh) if need be and then execute create.sh.
 
 ## Cleanup
 
@@ -36,9 +43,9 @@ Execute [delete.sh](/infrastructure/delete.sh) to clean up anything you created 
 
 [This](https://cloud.google.com/solutions/using-kubernetes-engine-to-deploy-apps-with-regional-persistent-disks) solution will walk you through creating a Wordpress Blog backed by MariaDB on Regional Persistent Disks. It will simulate zone failure to demonstrate the regional HA provided by GKE and Regional PDs.
 
-### GPUs "as a service" with GPU Node Pools
 
-WIP
+### Setting up Clusters with Shared VPC
+[This](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-shared-vpc#pinging_between_nodes) tutorial will show you how to set up two GKE clusters in the same shared VPC.
 
 ## Additional Resources
 

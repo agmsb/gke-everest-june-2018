@@ -19,6 +19,9 @@ PROJECT_ID=$(gcloud config list project --format=flattened | awk 'FNR == 1 {prin
 # Set GCP Region
 REGION=us-west1
 
+# Set GCP Account
+PRIMARY_ACCOUNT=$(gcloud config get-value account)
+
 # Set VPC
 VPC_NAME=example-vpc
 SUBNET_NAME=example-vpc-k8s-cluster
@@ -27,4 +30,3 @@ SUBNET_NAME=example-vpc-k8s-cluster
 CLUSTER_NAME=example-gke-cluster
 CLUSTER_VERSION=$(gcloud beta container get-server-config --region us-west1 --format='value(validMasterVersions[0])')
 MACHINE_TYPE=n1-standard-1
-

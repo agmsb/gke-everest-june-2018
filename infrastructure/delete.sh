@@ -15,7 +15,11 @@
 
 source ./options.sh
 
-printf "\n Validating GCP Project"
+printf "\n We're sorry to see you go. \n"
+
+sleep 2 
+
+printf "\n Validating GCP Project \n"
 
 gcloud config set project $PROJECT_ID
 
@@ -41,7 +45,7 @@ gcloud container networks subnets delete $SUBNET_NAME --region=$REGION
 
 EOM
 
-gcloud container networks subnets delete $SUBNET_NAME --region=$REGION
+gcloud compute networks subnets delete $SUBNET_NAME --region=$REGION
 
 printf "\n Deleting VPC $VPC_NAME \n"
 
@@ -49,9 +53,11 @@ cat << EOM
 
 Currently running:
 
-gcloud container networks delete $VPC_NAME
+gcloud compute networks delete $VPC_NAME
 
 EOM
+
+gcloud compute networks delete $VPC_NAME
 
 printf "\n We should be all done here. Thanks for trying this demo out! \n"
 
