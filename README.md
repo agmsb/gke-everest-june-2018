@@ -15,7 +15,7 @@ See [here](https://cloud.google.com/pricing/list) for pricing on relevant techno
 
 ## Creating a GKE Cluster
 
-[This](/infrastructure/gke.sh) script will use gcloud to create a GKE cluster with several of the GCP and GKE constructs discussed during the session. 
+[This](/infrastructure/create.sh) script will use gcloud to create a GKE cluster with several of the GCP and GKE constructs discussed during the session. 
 
 Clone the repo and make the scripts executable.
 
